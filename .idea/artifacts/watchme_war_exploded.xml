@@ -1,0 +1,32 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="watchme:war exploded">
+    <output-path>$PROJECT_DIR$/target/sometest</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="watchme" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: it.sauronsoftware.cron4j:cron4j:2.2.5" />
+          <element id="library" level="project" name="Maven: com.sun.phobos:freemarker:2.3.12" />
+          <element id="library" level="project" name="Maven: com.sun.phobos:phobos-rhino:0.6.0" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.5.1" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.4.3" />
+          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.9" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.38" />
+          <element id="library" level="project" name="Maven: com.jfinal:jfinal:2.2" />
+          <element id="library" level="project" name="Maven: cglib:cglib-nodep:3.1" />
+          <element id="library" level="project" name="Maven: c3p0:c3p0:0.9.1.2" />
+          <element id="library" level="project" name="Maven: javax.mail:mail:1.4" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/sometest/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="watchme/web/Web2" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,35 @@
+<#include "/common/_layout.html"/>
+<@layout>
+<h1>图书 <a href="reIndex">重建索引</a>
+
+</h1>
+<form action="/books/bookinfo" method="post">
+书籍名称<input name="mybooks.book_name" type="text" />
+格式<input name="mybooks.book_format" type="text" />
+	<input value="提交" type="submit">
+</form>
+
+<div class="table_box">
+	<table class="list">
+		<tbody>
+		<tr>
+			<th>书名称</th>
+			<th >标签</th>
+			<th>大小</th>
+			<th>阅读</th>
+		</tr>
+
+		<#list zkPage.getList() as x>
+			<tr ">
+				<td style="text-align:left;">${x.book_name}</td>
+				<td style="text-align:left;">${x.tags}</td>
+				<td style="text-align:left;">${x.book_size}</td>
+				<td onclick="window.open('/books/jumpurl/${x.id}')"></td>
+			</tr>
+		</#list>
+		</tbody>
+	</table>
+	<#include "/common/_paginate.html" />
+	<@paginate currentPage=zkPage.pageNumber totalPage=zkPage.totalPage actionUrl="/books/" />
+</div>
+</@layout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="myTomcat">
+    <serverData>
+      <paths name="myTomcat">
+        <serverdata>
+          <mappings>
+            <mapping deploy="D:\apache-tomcat-8.0.36\webapps" local="$PROJECT_DIR$/out/artifacts/jfinal_demo_Web_exploded" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

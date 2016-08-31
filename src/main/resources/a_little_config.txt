@@ -1,0 +1,5 @@
+jdbcUrl =  ${maven.filter.jdbc.url}
+user = ${maven.filter.jdbc.username}
+password =  ${maven.filter.jdbc.password}
+devMode = false
+
