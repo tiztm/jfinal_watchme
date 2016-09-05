@@ -1,33 +1,53 @@
 <#include "/common/zuiGrid_layout.html"/>
 <@layout>
-<form action="/xianyu/bookinfo" method="post">
-	名称<input name="xianyu.name" type="text" style="cursor: pointer" />
-	类型<input name="xianyu.xianyutype" type="text" />
-	<input value="提交" type="submit">
-</form>
-	<table class="table datatable" id="dataTable">
-		<tbody>
-			<tr>
-				<th data-width="25%">标题</th>
-				<th data-width="35%">内容</th>
-				<th data-width="5%">价格</th>
-				<th data-width="5%">类别</th>
-				<th data-width="10%">地点</th>
-				<th data-width="15%">时间</th>
-			</tr>
 
-			<#list zkPage.getList() as x>
-			<tr onclick="window.open('/xianyu/jumpurl/${x.id}')">
-				<td style="text-align:left;">${x.name}</td>
-				<td style="text-align:left;">${x.content}</td>
-				<td style="text-align:left;">${x.nowprice}</td>
-				<td style="text-align:left;">${x.xianyutype}</td>
-				<td style="text-align:left;">${x.place}</td>
-				<td style="text-align:left;">${x.createTime}</td>
-			</tr>
-			</#list>
-		</tbody>
-	</table>
-<#include "/common/_paginate.html" />
-<@paginate currentPage=zkPage.pageNumber totalPage=zkPage.totalPage actionUrl="/xianyu/" />
+
+<form action="/xianyu/bookinfo" method="post">
+
+
+<div class="input-group" style="width: 95%">
+	<span class="input-group-addon">名称</span>
+	<input type="text" name="xianyu.name" class="form-control">
+	<span class="input-group-addon">类型</span>
+	<input type="text" name="xianyu.xianyutype"  class="form-control">
+  <span class="input-group-btn">
+    <button class="btn btn-default" type="submit">搜索</button>
+  </span>
+</div>
+</form>
+
+<div class="list">
+	<!-- 列表头部 -->
+	<header>
+		<h1>闲鱼抓取</h1>
+	</header>
+	<!-- 列表项组 -->
+	<section class="items" style="overflow: hidden">
+
+
+		<#list zkPage.getList() as x>
+
+			<div class="item">
+				<div class="item-heading">
+					<div class="pull-right label label-success">${x.nowprice}</div>
+					<h4><a href="###" onclick="window.open('/xianyu/jumpurl/${x.id}')">${x.name}</a></h4>
+				</div>
+				<div class="item-content">${x.content}</div>
+				<div class="item-footer">
+					<a href="#" class="text-muted"><i class="icon-comments"></i>${x.xianyutype}-${x.place}</a> &nbsp; <span class="text-muted">${x.createTime}</span>
+				</div>
+			</div>
+
+		</#list>
+
+	</section>
+	<!-- 列表底部 -->
+	<footer>
+		<#include "/common/_paginate.html" />
+		<@paginate currentPage=zkPage.pageNumber totalPage=zkPage.totalPage actionUrl="/xianyu/" />
+	</footer>
+</div>
+
+
+
 </@layout>
