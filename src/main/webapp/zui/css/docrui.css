@@ -1,0 +1,14 @@
+#grid {
+    height: 100px;
+}
+
+#mainContainer {
+    padding-top: 60px;
+    bottom: 0px;
+}
+
+
+.navbar-inverse {
+    background-color: #3280fc;
+    border-color: #3280fc;
+}

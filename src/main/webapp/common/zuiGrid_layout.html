@@ -1,0 +1,41 @@
+<#macro layout>
+    <html lang="zh-cn">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- zui -->
+        <link href="../zui/css/zui.min.css" rel="stylesheet">
+        <link href="../zui/css/docrui.css" rel="stylesheet">
+        <link href="../zui/lib/datatable/zui.datatable.min.css" rel="stylesheet">
+        <!--[if lt IE 9]>
+        <script src="../zui/lib/ieonly/html5shiv.js"></script>
+        <script src="../zui/lib/ieonly/respond.js"></script>
+        <script src="../zui/lib/ieonly/excanvas.js"></script>
+        <![endif]-->
+        <!-- ZUI Javascript组件 -->
+        <script src="../zui/js/jquery-1.11.0.min.js"></script>
+        <script src="../zui/js/zui.min.js"></script>
+        <script src="../zui/lib/datatable/zui.datatable.min.js"></script>
+        <script>
+
+            $(document).ready(function () {
+                $('table.datatable').datatable({sortable: true});
+            });
+
+
+        </script>
+    </head>
+    <body style="height: 100%">
+
+    <!-- HTML 代码 -->
+
+        <#nested>
+
+
+
+    </body>
+    </html>
+
+</#macro>
+

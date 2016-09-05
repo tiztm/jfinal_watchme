@@ -3,11 +3,7 @@ package com.demo.common.model;
 import com.demo.common.model.base.BaseXianyu;
 import com.jfinal.plugin.activerecord.Page;
 import com.utils.HttpclientUtil;
-import com.utils.tiezi;
-import com.utils.zk8Text;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -54,6 +50,12 @@ public class Xianyu extends BaseXianyu<Xianyu> {
 
 			String string = HttpclientUtil.get(xianyutype.getUrl());
 
+			String wrongwords = xianyutype.getWrongwords();
+			String[] wrongSpilt = null;
+			if(wrongwords!=null&&wrongwords.length()>0) {
+				wrongSpilt = wrongwords.split(",");
+			}
+
 			long t2 = System.currentTimeMillis();
 
 			//去掉所有换行符
@@ -71,6 +73,21 @@ public class Xianyu extends BaseXianyu<Xianyu> {
 
 
 				String name = urlAll.substring(66);
+
+				//对包含有无聊关键词的排除在外
+				if(wrongSpilt!=null)
+				{
+					boolean wrong = false;
+					for (int i = 0; i < wrongSpilt.length; i++) {
+						if(name.contains(wrongSpilt[i]))
+						{
+							wrong = true;
+							break;
+						}
+					}
+					if(wrong) continue;
+				}
+
 
 				String loc = ZkPosts.dao.getStringFromTwo(s,"class=\"seller-location\">","</div>",true);
 				String lev = "";//ZkPosts.dao.getStringFromTwo(s,"sh-user-vip","</span>",true).substring(18);
@@ -94,11 +111,13 @@ public class Xianyu extends BaseXianyu<Xianyu> {
 
 					if(xianyutype.getNeedMail()!=null&&xianyutype.getNeedMail().equals("1"))
 					{
-						Mail m = new Mail();
-						m.setTitle(name+'-'+priceInt);
-						m.setSendstatus(0);
-						m.setContent(content+"<br>"+url);
-						m.save();
+						if(xianyutype.getMailMoney()==null||priceInt<=xianyutype.getMailMoney()) {
+							Mail m = new Mail();
+							m.setTitle( priceInt + "元-" +name  );
+							m.setSendstatus(0);
+							m.setContent(content + "<br>" + url);
+							m.save();
+						}
 					}
 
 					xy.save();

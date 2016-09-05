@@ -1,29 +1,26 @@
-<#include "/common/_layout.html"/>
+<#include "/common/zuiGrid_layout.html"/>
 <@layout>
-<h1>所有最新的信息
-</h1>
 <form action="/xianyu/bookinfo" method="post">
 	名称<input name="xianyu.name" type="text" style="cursor: pointer" />
 	类型<input name="xianyu.xianyutype" type="text" />
 	<input value="提交" type="submit">
 </form>
-<div class="table_box">
-	<table class="list">
+	<table class="table datatable" id="dataTable">
 		<tbody>
 			<tr>
-				<th width="25%">标题</th>
-				<th width="35%">内容</th>
-				<th width="5%">价格</th>
-				<th width="5%">类别</th>
-				<th width="8%">地点</th>
-				<th width="15%">时间</th>
+				<th data-width="25%">标题</th>
+				<th data-width="35%">内容</th>
+				<th data-width="5%">价格</th>
+				<th data-width="5%">类别</th>
+				<th data-width="10%">地点</th>
+				<th data-width="15%">时间</th>
 			</tr>
-			
+
 			<#list zkPage.getList() as x>
 			<tr onclick="window.open('/xianyu/jumpurl/${x.id}')">
 				<td style="text-align:left;">${x.name}</td>
 				<td style="text-align:left;">${x.content}</td>
-				<td style="text-align:left;">${x.pricegos}</td>
+				<td style="text-align:left;">${x.nowprice}</td>
 				<td style="text-align:left;">${x.xianyutype}</td>
 				<td style="text-align:left;">${x.place}</td>
 				<td style="text-align:left;">${x.createTime}</td>
@@ -31,7 +28,6 @@
 			</#list>
 		</tbody>
 	</table>
-	<#include "/common/_paginate.html" />
-	<@paginate currentPage=zkPage.pageNumber totalPage=zkPage.totalPage actionUrl="/xianyu/" />
-</div>
+<#include "/common/_paginate.html" />
+<@paginate currentPage=zkPage.pageNumber totalPage=zkPage.totalPage actionUrl="/xianyu/" />
 </@layout>

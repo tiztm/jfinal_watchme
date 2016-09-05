@@ -1,0 +1,4 @@
+jdbcUrl =  jdbc:mysql://127.3.236.130:3306/watchme?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+user = adminylfvRu3
+password =  91D3b51cdvxT
+devMode = false
