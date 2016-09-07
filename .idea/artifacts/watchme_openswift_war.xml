@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="watchme-openswift:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="ROOT.war">
+      <element id="artifact" artifact-name="watchme:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/a_little_config-openswift.txt" output-file-name="a_little_config.txt" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

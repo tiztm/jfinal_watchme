@@ -16,7 +16,7 @@
 </div>
 </form>
 
-<div class="list">
+<div class="list list-condensed">
 	<!-- 列表头部 -->
 	<header>
 		<h1>闲鱼抓取</h1>
@@ -29,13 +29,11 @@
 
 			<div class="item">
 				<div class="item-heading">
-					<div class="pull-right label label-success">${x.nowprice}</div>
+					<div class="pull-left label label-success">${x.nowprice}-${x.xianyutype}</div>
 					<h4><a href="###" onclick="window.open('/xianyu/jumpurl/${x.id}')">${x.name}</a></h4>
+					<div class="pull-right lable"><i class="icon-comments"></i>${x.place}:${x.createTime}</div>
 				</div>
-				<div class="item-content">${x.content}</div>
-				<div class="item-footer">
-					<a href="#" class="text-muted"><i class="icon-comments"></i>${x.xianyutype}-${x.place}</a> &nbsp; <span class="text-muted">${x.createTime}</span>
-				</div>
+				<div class="item-content" style="overflow: hidden;word-break:keep-all; white-space:nowrap;">${x.content}</div>
 			</div>
 
 		</#list>

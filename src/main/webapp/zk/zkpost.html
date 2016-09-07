@@ -1,6 +1,6 @@
 <#include "/common/zuiGrid_layout.html"/>
 <@layout>
-<div class="list">
+<div class="list list-condensed">
 	<!-- 列表头部 -->
 	<header>
 		<h1>最近热门信息 <a href="rm">热门</a></h1>
@@ -13,13 +13,10 @@
 
 			<div class="item">
 			<div class="item-heading">
-				<div class="pull-right label label-success">维基</div>
+				<div class="pull-right label label-success">${x.huifuNum}</div>
 				<h4><a href="###" onclick="window.open('/zk/jumpurl/${x.id}')">${x.name}</a></h4>
 			</div>
-			<div class="item-content"></div>
-			<div class="item-footer">
-				<a href="#" class="text-muted"><i class="icon-comments"></i>${x.readNum}-${x.huifuNum}</a> &nbsp; <span class="text-muted">${x.createTime}</span>
-			</div>
+
 			</div>
 
 		</#list>

@@ -60,12 +60,12 @@ public class DemoConfig extends JFinalConfig {
 
 		SchedulerPlugin sp = new SchedulerPlugin();
 
+		Runnable task = new Zktask();
+		sp.cronSchedule(task, "* * * * *");
+
 
 		//不是开发者模式，则加载定时任务
 		if(!PropKit.getBoolean("devMode", false)) {
-			Runnable task = new Zktask();
-			sp.cronSchedule(task, "* * * * *");
-
 
 		Runnable task2 = new Mailtask();
 		sp.cronSchedule(task2, "* * * * *");
