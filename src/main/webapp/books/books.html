@@ -1,35 +1,47 @@
-<#include "/common/_layout.html"/>
+<#include "/common/zuiGrid_layout.html"/>
 <@layout>
-<h1>图书 <a href="reIndex">重建索引</a>
 
-</h1>
 <form action="/books/bookinfo" method="post">
 书籍名称<input name="mybooks.book_name" type="text" />
 格式<input name="mybooks.book_format" type="text" />
 	<input value="提交" type="submit">
 </form>
 
-<div class="table_box">
-	<table class="list">
-		<tbody>
-		<tr>
-			<th>书名称</th>
-			<th >标签</th>
-			<th>大小</th>
-			<th>阅读</th>
-		</tr>
+<div class="list list-condensed">
+
+
+	<!-- 列表头部 -->
+	<header>
+		<h1>图书 <a href="reIndex">重建索引</a></h1>
+	</header>
+	<!-- 列表项组 -->
+
+
+	<section class="items" style="overflow: hidden">
+
 
 		<#list zkPage.getList() as x>
-			<tr ">
-				<td style="text-align:left;">${x.book_name}</td>
-				<td style="text-align:left;">${x.tags}</td>
-				<td style="text-align:left;">${x.book_size}</td>
-				<td onclick="window.open('/books/jumpurl/${x.id}')"></td>
-			</tr>
+
+			<div class="item">
+				<div class="item-heading">
+					<div class="pull-right label label-success">${x.tags}(${x.book_size}M)</div>
+					<h4><a href="###" onclick="window.open('/books/jumpurl/${x.id}')">${x.book_name}</a></h4>
+
+				</div>
+			</div>
+
 		</#list>
-		</tbody>
-	</table>
-	<#include "/common/_paginate.html" />
-	<@paginate currentPage=zkPage.pageNumber totalPage=zkPage.totalPage actionUrl="/books/" />
+
+	</section>
+	<!-- 列表底部 -->
+	<footer>
+		<#include "/common/_paginate.html" />
+		<@paginate currentPage=zkPage.pageNumber totalPage=zkPage.totalPage actionUrl="/books/" />
+	</footer>
+
+
 </div>
+
+
+
 </@layout>

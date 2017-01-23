@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 public class _JFinalDemoGenerator {
 	
 	public static DataSource getDataSource() {
-		PropKit.use("a_little_config.txt");
+		PropKit.use("jdbc.properties");
 		C3p0Plugin c3p0Plugin = DemoConfig.createC3p0Plugin();
 		c3p0Plugin.start();
 		return c3p0Plugin.getDataSource();

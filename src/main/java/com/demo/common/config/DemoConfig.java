@@ -25,7 +25,7 @@ public class DemoConfig extends JFinalConfig {
 	 */
 	public void configConstant(Constants me) {
 		// 加载少量必要配置，随后可用PropKit.get(...)获取值
-		PropKit.use("a_little_config.txt");
+		PropKit.use("jdbc.properties");
 		me.setDevMode(PropKit.getBoolean("devMode", false));
 	}
 	
@@ -49,7 +49,7 @@ public class DemoConfig extends JFinalConfig {
 	 */
 	public void configPlugin(Plugins me) {
 		// 配置C3p0数据库连接池插件
-		PropKit.use("a_little_config.txt");
+		PropKit.use("jdbc.properties");
 
 		C3p0Plugin C3p0Plugin = createC3p0Plugin();
 		me.add(C3p0Plugin);
